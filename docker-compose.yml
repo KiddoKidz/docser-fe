@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  web:
+    container_name: fe-docser-container-dev
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/app
+      - nodemodules:/app/node_modules
+    environment:
+      - CHOKIDAR_USEPOLLING=True
+
+volumes:
+  nodemodules:

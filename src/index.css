@@ -1,0 +1,34 @@
+@font-face {
+  font-family: "Metropolis";
+  src: local("Metropolis"),
+    url(./assets/font/Metropolis-Regular.woff2) format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Metropolis";
+  src: local("Metropolis"),
+    url(./assets/font/Metropolis-Medium.woff2) format("truetype");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Metropolis";
+  src: local("Metropolis"),
+    url(./assets/font/Metropolis-Bold.woff2) format("truetype");
+  font-weight: 700;
+}
+
+body,
+html {
+  margin: 0;
+  font-family: Metropolis, serif;
+  height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+em {
+  font-style: normal;
+  font-weight: 700;
+}
