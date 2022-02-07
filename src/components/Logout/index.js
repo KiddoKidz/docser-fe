@@ -5,10 +5,7 @@ import { LogoutButtonStyled } from "./styles";
 function LogoutButton() {
   return (
     <div>
-      <LogoutButtonStyled
-        data-testid="logout-button"
-        onClick={() => removeRelatedWithAuth()}
-      >
+      <LogoutButtonStyled data-testid="logout-button" onClick={() => removeRelatedWithAuth()}>
         Log Out
       </LogoutButtonStyled>
     </div>

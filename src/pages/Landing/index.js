@@ -28,6 +28,7 @@ export default function LandingPage() {
       .then((res) => {
         localStorage.setItem("full_name", res.data.full_name);
         localStorage.setItem("picture_url", res.data.picture_url);
+        localStorage.setItem("is_admin", res.data.is_admin);
         setToken(loginToken);
       })
       .catch(() => {});
@@ -45,11 +46,7 @@ export default function LandingPage() {
       {!token ? (
         <div className={classes.root} data-testid="landing-page">
           <Grid className={classes.container}>
-            <img
-              src={sircloImg}
-              alt="drive_img"
-              className={classes.titleHeader}
-            />
+            <img src={sircloImg} alt="drive_img" className={classes.titleHeader} />
             <Typography className={classes.title}>
               <strong>Document Search {isAdmin && "Admin"}</strong>
             </Typography>

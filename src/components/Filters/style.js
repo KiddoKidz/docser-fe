@@ -8,7 +8,6 @@ import {
   withStyles,
 } from "@material-ui/core";
 
-
 export const StyledDrawer = withStyles({
   root: {
     position: "relative",

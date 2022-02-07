@@ -15,8 +15,7 @@ function ErrorInfo() {
         <Grid item>
           <p>Error: No data avalaible</p>
           <p>
-            Please contact <strong>SIRCLO DocSer</strong> admin if you see this
-            message
+            Please contact <strong>SIRCLO DocSer</strong> admin if you see this message
           </p>
         </Grid>
       </Grid>

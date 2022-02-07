@@ -22,7 +22,7 @@ import { getUserInfo } from "../../utils/useAuth";
 import getFileResult from "../../utils/getFileResult";
 import useDebounce from "../../utils/useDebounce";
 
-const DashboardPage = () => {
+const TOCPage = () => {
   const [fullName, setFullName] = useState("");
   const [pictureUrl, setPictureUrl] = useState("");
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -142,9 +142,7 @@ const DashboardPage = () => {
       );
     }
 
-    const resultSliced = usePagination
-      ? result.slice(page * 10 - 10, page * 10)
-      : result;
+    const resultSliced = usePagination ? result.slice(page * 10 - 10, page * 10) : result;
 
     return (
       <>
@@ -183,15 +181,12 @@ const DashboardPage = () => {
   return (
     <div data-testid="dashboard">
       <MyContext.Provider value={loggedIn}>
-        <Header
-          action={handleDrawerToggle}
-          username={fullName}
-          picture={pictureUrl}
-        />
+        <Header action={handleDrawerToggle} username={fullName} picture={pictureUrl} />
         <Filter
           opened={mobileOpen}
           action={handleDrawerToggle}
           handleFilterValue={handleFilterValue}
+          type="docser"
         />
         <DashboardContainer>
           <SearchBar
@@ -206,4 +201,4 @@ const DashboardPage = () => {
   );
 };
 
-export default DashboardPage;
+export default TOCPage;

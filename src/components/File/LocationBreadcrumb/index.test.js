@@ -13,10 +13,7 @@ test("Breadcrumb component exist", async () => {
   };
 
   const { queryByTestId } = render(
-    <LocationBreadcrumb
-      location={testFIleLocation}
-      locationLink={testFIleLocationLink}
-    />
+    <LocationBreadcrumb location={testFIleLocation} locationLink={testFIleLocationLink} />,
   );
 
   const typeLabel = screen.getByText("testE");

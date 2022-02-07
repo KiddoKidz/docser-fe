@@ -14,8 +14,7 @@ function CreationDate({ date }) {
     <div className={classes.root} data-testid="creation-date">
       <Grid container justify="flex-start" spacing={1}>
         <Typography variant="subtitle1" className={classes.item}>
-          <CalendarTodayIcon className={classes.icon} /> Created on{" "}
-          {createdDate || "N/A"}
+          <CalendarTodayIcon className={classes.icon} /> Created on {createdDate || "N/A"}
         </Typography>
       </Grid>
     </div>

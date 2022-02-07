@@ -30,7 +30,7 @@ test("creation date is shown", () => {
       location={fileTest.location}
       date={fileTest.date}
       time={fileTest.time}
-    />
+    />,
   );
   const creationDate = screen.getByText("Jan", { exact: false });
   expect(creationDate).toBeInTheDocument();
@@ -47,7 +47,7 @@ test("File component exist", () => {
       date={fileTest.date}
       author={fileTest.author}
       time={fileTest.time}
-    />
+    />,
   );
   expect(queryByTestId("file-component")).toBeTruthy();
 });
@@ -59,7 +59,7 @@ test("File types", () => {
       fileContent={fileTest.fileContent}
       fileTitle={fileTest.fileTitle}
       location={[]}
-    />
+    />,
   );
 
   file.rerender(
@@ -68,7 +68,7 @@ test("File types", () => {
       fileContent={fileTest.fileContent}
       fileTitle={fileTest.fileTitle}
       location={fileTest.location}
-    />
+    />,
   );
 
   file.rerender(
@@ -80,7 +80,7 @@ test("File types", () => {
       date={fileTest.date}
       author={fileTest.author}
       time={fileTest.time}
-    />
+    />,
   );
 
   file.rerender(
@@ -92,7 +92,7 @@ test("File types", () => {
       date={fileTest.date}
       author={fileTest.author}
       time={fileTest.time}
-    />
+    />,
   );
 
   file.rerender(
@@ -104,7 +104,7 @@ test("File types", () => {
       date={fileTest.date}
       author={fileTest.author}
       time={fileTest.time}
-    />
+    />,
   );
 
   file.rerender(
@@ -116,7 +116,7 @@ test("File types", () => {
       date={fileTest.date}
       author={fileTest.author}
       time={fileTest.time}
-    />
+    />,
   );
 
   file.rerender(
@@ -128,7 +128,7 @@ test("File types", () => {
       date={fileTest.date}
       author={fileTest.author}
       time={fileTest.time}
-    />
+    />,
   );
 
   file.rerender(
@@ -140,7 +140,7 @@ test("File types", () => {
       date={fileTest.date}
       author={fileTest.author}
       time={fileTest.time}
-    />
+    />,
   );
 
   file.rerender(
@@ -152,7 +152,7 @@ test("File types", () => {
       date={fileTest.date}
       author={fileTest.author}
       time={fileTest.time}
-    />
+    />,
   );
 
   file.rerender(
@@ -161,7 +161,7 @@ test("File types", () => {
       fileContent={fileTest.fileContent}
       fileTitle={fileTest.fileTitle}
       location={fileTest.location}
-    />
+    />,
   );
 
   expect(file.queryByTestId("file-component")).toBeTruthy();
@@ -174,7 +174,7 @@ test("owner name shown", () => {
       fileContent={fileTest.fileContent}
       fileTitle={fileTest.fileTitle}
       location={[]}
-    />
+    />,
   );
 
   file.rerender(
@@ -183,7 +183,7 @@ test("owner name shown", () => {
       fileContent={fileTest.fileContent}
       fileTitle={fileTest.fileTitle}
       location={fileTest.location}
-    />
+    />,
   );
 
   file.rerender(
@@ -193,7 +193,7 @@ test("owner name shown", () => {
       fileTitle={fileTest.fileTitle}
       location={fileTest.location}
       owner={fileTest.owner}
-    />
+    />,
   );
   const ownerName = screen.getByText("Siti");
   expect(ownerName).toBeInTheDocument();

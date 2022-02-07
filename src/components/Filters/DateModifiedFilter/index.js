@@ -126,36 +126,12 @@ export default function DateModifiedFilter({ handleFilterValue }) {
             <Grid container>
               <Grid item>
                 <RadioGroup value={value} onChange={handleChange}>
-                  <StyledFormLabel
-                    value="0"
-                    control={styledRadio}
-                    label="Any date"
-                  />
-                  <StyledFormLabel
-                    value="1"
-                    control={styledRadio}
-                    label="Last 24 hours"
-                  />
-                  <StyledFormLabel
-                    value="2"
-                    control={styledRadio}
-                    label="Last week"
-                  />
-                  <StyledFormLabel
-                    value="3"
-                    control={styledRadio}
-                    label="Last month"
-                  />
-                  <StyledFormLabel
-                    value="4"
-                    control={styledRadio}
-                    label="Last year"
-                  />
-                  <StyledFormLabel
-                    value="5"
-                    control={styledRadio}
-                    label="Custom"
-                  />
+                  <StyledFormLabel value="0" control={styledRadio} label="Any date" />
+                  <StyledFormLabel value="1" control={styledRadio} label="Last 24 hours" />
+                  <StyledFormLabel value="2" control={styledRadio} label="Last week" />
+                  <StyledFormLabel value="3" control={styledRadio} label="Last month" />
+                  <StyledFormLabel value="4" control={styledRadio} label="Last year" />
+                  <StyledFormLabel value="5" control={styledRadio} label="Custom" />
                 </RadioGroup>
               </Grid>
               <Box margin="3px 28px 0px">

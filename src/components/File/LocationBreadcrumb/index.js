@@ -23,8 +23,7 @@ export default function LocationBreadcrumb({ location, locationLink }) {
           separator="›"
           aria-label="breadcrumb"
           className={classes.breadcrumbs}
-          data-testid="breadcrumb"
-        >
+          data-testid="breadcrumb">
           <Typography color="inherit" className={classes.locationUnknown}>
             {location[0]}
           </Typography>
@@ -39,15 +38,8 @@ export default function LocationBreadcrumb({ location, locationLink }) {
                       <Grid
                         item
                         className={classes.heading}
-                        onClick={() =>
-                          window.open(locationLink[items].shift(), "_blank")
-                        }
-                      >
-                        <img
-                          src={fileIcon}
-                          alt="fileIcon"
-                          className={classes.img}
-                        />
+                        onClick={() => window.open(locationLink[items], "_blank")}>
+                        <img src={fileIcon} alt="fileIcon" className={classes.img} />
                         {items}
                       </Grid>
                     </Typography>
@@ -55,32 +47,19 @@ export default function LocationBreadcrumb({ location, locationLink }) {
                 ))}
               </>
             }
-            placement="bottom-start"
-          >
+            placement="bottom-start">
             <ThreeDot>...</ThreeDot>
           </LightTooltip>
           <Typography
             color="inherit"
             className={classes.location}
-            onClick={() =>
-              window.open(
-                locationLink[location[location.length - 2]].shift(),
-                "_blank"
-              )
-            }
-          >
+            onClick={() => window.open(locationLink[location[location.length - 2]], "_blank")}>
             {location[location.length - 2]}
           </Typography>
           <Typography
             color="inherit"
             className={classes.location}
-            onClick={() =>
-              window.open(
-                locationLink[location[location.length - 1]].shift(),
-                "_blank"
-              )
-            }
-          >
+            onClick={() => window.open(locationLink[location[location.length - 1]], "_blank")}>
             {location[location.length - 1]}
           </Typography>
         </Breadcrumbs>
@@ -89,20 +68,15 @@ export default function LocationBreadcrumb({ location, locationLink }) {
           separator="›"
           aria-label="breadcrumb"
           className={classes.breadcrumbs}
-          data-testid="breadcrumb"
-        >
-          {location.map((items, index) => (
+          data-testid="breadcrumb">
+          {location.map((items) => (
             <Typography
               color="inherit"
-              className={
-                index === 0 ? classes.locationUnknown : classes.location
-              }
+              className={locationLink[items] === "" ? classes.locationUnknown : classes.location}
               key={`lf${items}`}
               onClick={() => {
-                if (index !== 0)
-                  window.open(locationLink[items].shift(), "_blank");
-              }}
-            >
+                if (locationLink[items] !== "") window.open(locationLink[items], "_blank");
+              }}>
               {items}
             </Typography>
           ))}

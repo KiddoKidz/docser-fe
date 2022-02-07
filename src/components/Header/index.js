@@ -16,18 +16,13 @@ const Header = ({ username, picture, action }) => {
   const mobile = useMediaQuery(theme.breakpoints.down("xs"));
 
   return (
-    <AppBar
-      className={classes.appBar}
-      style={{ position: "fixed" }}
-      data-testid="header"
-    >
+    <AppBar className={classes.appBar} style={{ position: "fixed" }} data-testid="header">
       <Toolbar variant="dense">
         <IconButton
           onClick={action}
           data-testid="filter-button"
           color="inherit"
-          className={classes.menuButton}
-        >
+          className={classes.menuButton}>
           <MenuIcon />
         </IconButton>
 
@@ -37,17 +32,14 @@ const Header = ({ username, picture, action }) => {
           </Grid>
           <Grid item>
             <Grid item container alignItems="center">
-              {username && !mobile && (
-                <Username data-testid="username">{username}</Username>
-              )}
+              {username && !mobile && <Username data-testid="username">{username}</Username>}
 
               <IconButton
                 color="inherit"
                 data-testid="profile-picture"
                 onClick={(e) => {
                   setAnchorEl(e.currentTarget);
-                }}
-              >
+                }}>
                 <PictureProfile src={picture} alt="dp" />
               </IconButton>
               <Popover
@@ -61,8 +53,7 @@ const Header = ({ username, picture, action }) => {
                 transformOrigin={{
                   vertical: "top",
                   horizontal: "right",
-                }}
-              >
+                }}>
                 <Logout />
               </Popover>
             </Grid>

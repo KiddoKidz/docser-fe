@@ -18,9 +18,7 @@ test("Last Modified Info is able to display modified time", () => {
 
 test("Last modified info is able to display modified date", () => {
   render(<LastModified author="User Modify" modifiedTime={1611667088811} />);
-  const lastModifiedInfo = screen.getByText(
-    "Last modified by User Modify on Jan 26, 2021"
-  );
+  const lastModifiedInfo = screen.getByText("Last modified by User Modify on Jan 26, 2021");
   expect(lastModifiedInfo).toBeInTheDocument();
 });
 
@@ -30,8 +28,6 @@ test("Last modified info is able to display modified date if it was modified yes
   yesterday.setDate(yesterday.getDate() - 1);
 
   render(<LastModified author="User Modify" modifiedTime={yesterday} />);
-  const lastModifiedInfo = screen.getByText(
-    "Last modified by User Modify yesterday"
-  );
+  const lastModifiedInfo = screen.getByText("Last modified by User Modify yesterday");
   expect(lastModifiedInfo).toBeInTheDocument();
 });

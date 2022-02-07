@@ -15,9 +15,7 @@ const data = {
 
 test("Document location filter label exists", async () => {
   getDropdownResult.mockImplementation(() => Promise.resolve(data));
-  const { getByTestId } = render(
-    <DocLocationFilter handleFilterValue={handleFilterValue} />
-  );
+  const { getByTestId } = render(<DocLocationFilter handleFilterValue={handleFilterValue} />);
   const label = getByTestId("label");
   const placeholder = screen.getByPlaceholderText("Search here...");
   await waitFor(() => expect(label).toBeInTheDocument());
@@ -26,40 +24,28 @@ test("Document location filter label exists", async () => {
 
 test("Document location filter can accept values", async () => {
   getDropdownResult.mockImplementation(() => Promise.resolve(data));
-  const { getByTestId } = render(
-    <DocLocationFilter handleFilterValue={handleFilterValue} />
-  );
+  const { getByTestId } = render(<DocLocationFilter handleFilterValue={handleFilterValue} />);
   const autocomplete = getByTestId("autocomplete");
   const input = within(autocomplete).getByTestId("textField");
   userEvent.type(input, "Test Directory");
-  await waitFor(() =>
-    expect(screen.getByText("Test Directory")).toBeInTheDocument()
-  );
+  await waitFor(() => expect(screen.getByText("Test Directory")).toBeInTheDocument());
 });
 
 test("Document location result error", async () => {
   getDropdownResult.mockImplementation(() => Promise.reject(data));
-  const { getByTestId } = render(
-    <DocLocationFilter handleFilterValue={handleFilterValue} />
-  );
+  const { getByTestId } = render(<DocLocationFilter handleFilterValue={handleFilterValue} />);
   const autocomplete = getByTestId("autocomplete");
   const input = within(autocomplete).getByTestId("textField");
   userEvent.type(input, "Test Directory");
-  await waitFor(() =>
-    expect(screen.getByText("No options")).toBeInTheDocument()
-  );
+  await waitFor(() => expect(screen.getByText("No options")).toBeInTheDocument());
 });
 
 test("Document location can choose from dropdown", async () => {
   getDropdownResult.mockImplementation(() => Promise.resolve(data));
-  const { getByTestId } = render(
-    <DocLocationFilter handleFilterValue={handleFilterValue} />
-  );
+  const { getByTestId } = render(<DocLocationFilter handleFilterValue={handleFilterValue} />);
   const autocomplete = getByTestId("autocomplete");
   const input = within(autocomplete).getByTestId("textField");
   userEvent.type(input, "Test Directory");
-  await waitFor(() =>
-    expect(screen.getByText("Test Directory")).toBeInTheDocument()
-  );
+  await waitFor(() => expect(screen.getByText("Test Directory")).toBeInTheDocument());
   screen.getByText("Test Directory").click();
 });

@@ -2,14 +2,7 @@ import React from "react";
 import { render, fireEvent, screen } from "@testing-library/react";
 import DateModifiedFilter from "./index";
 
-const radioLabels = [
-  "Any date",
-  "Last 24 hours",
-  "Last week",
-  "Last month",
-  "Last year",
-  "Custom",
-];
+const radioLabels = ["Any date", "Last 24 hours", "Last week", "Last month", "Last year", "Custom"];
 
 const handleFilterValue = jest.fn();
 
