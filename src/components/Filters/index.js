@@ -1,19 +1,14 @@
 import React from "react";
-import {
-  Box,
-  Toolbar,
-  Divider,
-  useMediaQuery,
-  useTheme,
-} from "@material-ui/core";
+import { Box, Toolbar, Divider, useMediaQuery, useTheme } from "@material-ui/core";
 import { StyledDrawer } from "./style";
 import TypeFilter from "./TypeFilter";
 import OwnerFilter from "./OwnerFilter";
 import DocLocationFilter from "./DocLocationFilter";
 import CreateButton from "../CreateButton";
 import DateModifiedFilter from "./DateModifiedFilter";
+import PageSwitcher from "../PageSwitcher";
 
-export default function FilterBar({ opened, action, handleFilterValue }) {
+export default function FilterBar({ opened, action, handleFilterValue, type }) {
   const theme = useTheme();
   const mobile = useMediaQuery(theme.breakpoints.down("md"));
   const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
@@ -27,10 +22,13 @@ export default function FilterBar({ opened, action, handleFilterValue }) {
         onClose={action}
         swipeAreaWidth={70}
         disableBackdropTransition={!iOS}
-        disableDiscovery={iOS}
-      >
+        disableDiscovery={iOS}>
         <Toolbar />
-        <Box margin="40px 35px 5px">
+
+        <Box margin="30px 35px 5px">
+          <PageSwitcher type={type} />
+        </Box>
+        <Box margin="30px 35px 5px">
           <CreateButton />
         </Box>
         <Box margin="30px 35px 15px">
@@ -43,7 +41,6 @@ export default function FilterBar({ opened, action, handleFilterValue }) {
         <TypeFilter handleFilterValue={handleFilterValue} />
         <Divider variant="middle" />
         <DateModifiedFilter handleFilterValue={handleFilterValue} />
-        <Toolbar />
       </StyledDrawer>
     </div>
   );

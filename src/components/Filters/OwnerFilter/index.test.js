@@ -24,40 +24,28 @@ test("Owner filter label and placeholder exists", async () => {
 
 test("Owner filter can accept values", async () => {
   getDropdownResult.mockImplementation(() => Promise.resolve(data));
-  const { getByTestId } = render(
-    <OwnerFilter handleFilterValue={handleFilterValue} />
-  );
+  const { getByTestId } = render(<OwnerFilter handleFilterValue={handleFilterValue} />);
   const autocomplete = getByTestId("autocomplete");
   const input = within(autocomplete).getByTestId("textField");
   userEvent.type(input, "Test User");
-  await waitFor(() =>
-    expect(screen.getByText("Test User - test@test.com")).toBeInTheDocument()
-  );
+  await waitFor(() => expect(screen.getByText("Test User - test@test.com")).toBeInTheDocument());
 });
 
 test("Owner result error", async () => {
   getDropdownResult.mockImplementation(() => Promise.reject(data));
-  const { getByTestId } = render(
-    <OwnerFilter handleFilterValue={handleFilterValue} />
-  );
+  const { getByTestId } = render(<OwnerFilter handleFilterValue={handleFilterValue} />);
   const autocomplete = getByTestId("autocomplete");
   const input = within(autocomplete).getByTestId("textField");
   userEvent.type(input, "Test Directory");
-  await waitFor(() =>
-    expect(screen.getByText("No options")).toBeInTheDocument()
-  );
+  await waitFor(() => expect(screen.getByText("No options")).toBeInTheDocument());
 });
 
 test("Owner filter can choose from dropdown", async () => {
   getDropdownResult.mockImplementation(() => Promise.resolve(data));
-  const { getByTestId } = render(
-    <OwnerFilter handleFilterValue={handleFilterValue} />
-  );
+  const { getByTestId } = render(<OwnerFilter handleFilterValue={handleFilterValue} />);
   const autocomplete = getByTestId("autocomplete");
   const input = within(autocomplete).getByTestId("textField");
   userEvent.type(input, "Test User");
-  await waitFor(() =>
-    expect(screen.getByText("Test User - test@test.com")).toBeInTheDocument()
-  );
+  await waitFor(() => expect(screen.getByText("Test User - test@test.com")).toBeInTheDocument());
   screen.getByText("Test User - test@test.com").click();
 });

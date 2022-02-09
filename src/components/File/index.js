@@ -43,12 +43,7 @@ export default function File({
                   {ReactHtmlParser(fileTitle)}
                 </Link>
               </Title>
-              {location && (
-                <LocationBreadcrumb
-                  location={location}
-                  locationLink={locationLink}
-                />
-              )}
+              {location && <LocationBreadcrumb location={location} locationLink={locationLink} />}
             </TitleWrapper>
 
             <Content>{ReactHtmlParser(fileContent)}</Content>
@@ -66,12 +61,7 @@ export default function File({
         <>
           <TitleWrapper>
             <Image src={iconLink} alt="file_icon" />
-            {location && (
-              <LocationBreadcrumb
-                location={location}
-                locationLink={locationLink}
-              />
-            )}
+            {location && <LocationBreadcrumb location={location} locationLink={locationLink} />}
           </TitleWrapper>
           <Title>
             <Link href={fileLink} target="_blank" variant="subtitle1">

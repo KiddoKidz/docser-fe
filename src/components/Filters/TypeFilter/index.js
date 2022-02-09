@@ -19,15 +19,7 @@ const styles = {
 function CheckedBox() {
   return (
     <SvgIcon style={styles}>
-      <rect
-        x="0.5"
-        y="0.5"
-        width="13"
-        height="13"
-        rx="1.5"
-        fill="white"
-        stroke="#E8E8E8"
-      />
+      <rect x="0.5" y="0.5" width="13" height="13" rx="1.5" fill="white" stroke="#E8E8E8" />
       <path
         fillRule="evenodd"
         clipRule="evenodd"
@@ -41,15 +33,7 @@ function CheckedBox() {
 function UncheckedBox() {
   return (
     <SvgIcon style={styles}>
-      <rect
-        x="0.5"
-        y="0.5"
-        width="13"
-        height="13"
-        rx="1.5"
-        fill="white"
-        stroke="#E8E8E8"
-      />
+      <rect x="0.5" y="0.5" width="13" height="13" rx="1.5" fill="white" stroke="#E8E8E8" />
     </SvgIcon>
   );
 }
@@ -62,21 +46,15 @@ function pushType(value, name, array) {
         break;
       case "docs":
         array.push("application/vnd.google-apps.document");
-        array.push(
-          "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-        );
+        array.push("application/vnd.openxmlformats-officedocument.wordprocessingml.document");
         break;
       case "sheets":
         array.push("application/vnd.google-apps.spreadsheet");
-        array.push(
-          "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-        );
+        array.push("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
         break;
       case "slides":
         array.push("application/vnd.google-apps.presentation");
-        array.push(
-          "application/vnd.openxmlformats-officedocument.presentationml.presentation"
-        );
+        array.push("application/vnd.openxmlformats-officedocument.presentationml.presentation");
         break;
       default:
         break;
@@ -120,11 +98,7 @@ export default function TypeFilter({ handleFilterValue }) {
         typeFilters = pushType(value, key, typeFilters);
       }
     });
-    typeFilters = pushType(
-      event.target.checked,
-      event.target.name,
-      typeFilters
-    );
+    typeFilters = pushType(event.target.checked, event.target.name, typeFilters);
     handleFilterValue("type", typeFilters);
   };
 

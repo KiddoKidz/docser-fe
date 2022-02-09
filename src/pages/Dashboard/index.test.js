@@ -26,9 +26,7 @@ function jsonData(i) {
   };
 }
 
-const bodyData = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map((i) =>
-  jsonData(i)
-);
+const bodyData = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map((i) => jsonData(i));
 const data = {
   error: false,
   data: bodyData,
@@ -47,13 +45,9 @@ describe("When user type search bar", () => {
     getFileResult.mockImplementation(() => Promise.resolve(data));
 
     const wrapper = render(<DashboardPage />);
-    const searchBarPlaceholder = wrapper.getByPlaceholderText(
-      "Search for keyword..."
-    );
+    const searchBarPlaceholder = wrapper.getByPlaceholderText("Search for keyword...");
     userEvent.type(searchBarPlaceholder, "test");
-    await waitFor(() =>
-      expect(wrapper.queryByTestId("search-results")).toBeInTheDocument()
-    );
+    await waitFor(() => expect(wrapper.queryByTestId("search-results")).toBeInTheDocument());
   });
 
   it("Search bar can clear values when clear icon is clicked", async () => {
@@ -70,31 +64,21 @@ describe("When user type search bar", () => {
   }, 10000);
 
   it("File not found", async () => {
-    getFileResult.mockImplementation(() =>
-      Promise.resolve({ error: false, data: [] })
-    );
+    getFileResult.mockImplementation(() => Promise.resolve({ error: false, data: [] }));
 
     const wrapper = render(<DashboardPage />);
-    const searchBarPlaceholder = wrapper.getByPlaceholderText(
-      "Search for keyword..."
-    );
+    const searchBarPlaceholder = wrapper.getByPlaceholderText("Search for keyword...");
     userEvent.type(searchBarPlaceholder, "xxxxxx");
     await waitFor(() => {
-      expect(
-        wrapper.queryByTestId("file-not-found-component")
-      ).toBeInTheDocument();
+      expect(wrapper.queryByTestId("file-not-found-component")).toBeInTheDocument();
     });
   }, 10000);
 
   it("Error from backend", async () => {
-    getFileResult.mockImplementation(() =>
-      Promise.resolve({ error: true, data: "test" })
-    );
+    getFileResult.mockImplementation(() => Promise.resolve({ error: true, data: "test" }));
 
     const wrapper = render(<DashboardPage />);
-    const searchBarPlaceholder = wrapper.getByPlaceholderText(
-      "Search for keyword..."
-    );
+    const searchBarPlaceholder = wrapper.getByPlaceholderText("Search for keyword...");
     userEvent.type(searchBarPlaceholder, "xxxxxx");
     await waitFor(() => {
       expect(wrapper.queryByTestId("error-info")).toBeInTheDocument();
@@ -105,13 +89,9 @@ describe("When user type search bar", () => {
     getFileResult.mockImplementation(() => Promise.reject());
 
     const wrapper = render(<DashboardPage />);
-    const searchBarPlaceholder = wrapper.getByPlaceholderText(
-      "Search for keyword..."
-    );
+    const searchBarPlaceholder = wrapper.getByPlaceholderText("Search for keyword...");
     userEvent.type(searchBarPlaceholder, "test");
-    await waitFor(() =>
-      expect(wrapper.queryByTestId("error-info")).toBeInTheDocument()
-    );
+    await waitFor(() => expect(wrapper.queryByTestId("error-info")).toBeInTheDocument());
   });
 });
 
@@ -125,9 +105,7 @@ describe("When user enter dashboard page", () => {
   });
 
   it("filter hamburger button visible when in mobile", async () => {
-    getFileResult.mockImplementation(() =>
-      Promise.resolve({ error: false, data: [] })
-    );
+    getFileResult.mockImplementation(() => Promise.resolve({ error: false, data: [] }));
     global.innerWidth = 1000;
     // eslint-disable-next-line no-undef
     global.dispatchEvent(new Event("resize"));
@@ -142,8 +120,6 @@ describe("When user enter dashboard page", () => {
     const wrapper = render(<DashboardPage />);
     wrapper.queryByTestId("filter-button").click();
     wrapper.queryByText("Docs").click();
-    await waitFor(() =>
-      expect(wrapper.queryByTestId("search-results")).toBeInTheDocument()
-    );
+    await waitFor(() => expect(wrapper.queryByTestId("search-results")).toBeInTheDocument());
   });
 });

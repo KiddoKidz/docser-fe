@@ -9,10 +9,7 @@ function LoginButton({ isAdmin }) {
   const url = isAdmin ? LoginAdmin : Login;
   return (
     <div>
-      <LoginButtonStyled
-        data-testid="loginButton"
-        onClick={() => window.location.assign(url)}
-      >
+      <LoginButtonStyled data-testid="loginButton" onClick={() => window.location.assign(url)}>
         <img src={GoogleIcon} alt="Google" height="20px" />
         <Box ml={1}>
           <Typography className={classes.loginText}>

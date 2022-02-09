@@ -16,7 +16,5 @@ test("Owner info accepts props", () => {
 test("Show file owner info in tooltip", async () => {
   const ownerTooltip = render(<OwnerInfo />);
   fireEvent.mouseOver(ownerTooltip.getByTestId("owner-tooltip"));
-  expect(
-    await ownerTooltip.findByText("Owner or Shared By")
-  ).toBeInTheDocument();
+  expect(await ownerTooltip.findByText("Owner or Shared By")).toBeInTheDocument();
 });

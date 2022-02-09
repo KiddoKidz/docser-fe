@@ -23,7 +23,7 @@ test("File not found icon exists", () => {
   expect(fileNotFound).toBeInTheDocument();
 });
 
-test("File not found description exists", () => {
+test("File not found DescriptionOutlined exists", () => {
   const { getByTestId } = render(<FileNotFound filter={filter} />);
   const fileNotFound = getByTestId("file-not-found-desc");
   expect(fileNotFound).toBeInTheDocument();

@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^4.11.3",
+    "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.57",
+    "@material-ui/styles": "^4.11.4",
     "@material/menu": "^11.0.0",
     "@testing-library/dom": "^7.31.2",
     "@testing-library/jest-dom": "^5.11.9",
@@ -16,6 +17,7 @@
     "chokidar": "^3.5.1",
     "js-cookie": "^2.2.1",
     "meilisearch": "^0.18.2",
+    "notistack": "^1.0.10",
     "react": "^17.0.1",
     "react-datepicker": "^3.6.0",
     "react-dom": "^17.0.1",
@@ -32,7 +34,9 @@
     "test:all": "react-scripts test --coverage --watchAll --testTimeout=50000",
     "test:ci": "react-scripts test --env=jsdom --testTimeout=50000 --coverage --silent --watchAll=false --reporters=default --testResultsProcessor jest-sonar-reporter",
     "eject": "react-scripts eject",
-    "lint": "./node_modules/.bin/eslint ./"
+    "lint:check": "./node_modules/.bin/eslint src/",
+    "lint:fix": "./node_modules/.bin/eslint --fix src/",
+    "format": "prettier --write \"src/**/*.js\""
   },
   "eslintConfig": {
     "extends": [
@@ -81,7 +85,7 @@
     "husky": "^4.3.8",
     "jest-sonar-reporter": "^2.0.0",
     "lint-staged": "^10.5.4",
-    "prettier": "2.2.1",
+    "prettier": "2.4.1",
     "pretty-quick": "^3.1.0"
   }
 }

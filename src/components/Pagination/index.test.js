@@ -9,9 +9,7 @@ test("Pagination component exists", () => {
 });
 
 test("Pagination clickable", () => {
-  const { queryByLabelText } = render(
-    <BasicPagination count={3} setPage={jest.fn()} />
-  );
+  const { queryByLabelText } = render(<BasicPagination count={3} setPage={jest.fn()} />);
   const number2 = queryByLabelText("Go to page 2");
   userEvent.click(number2);
   expect(number2).toBeTruthy();

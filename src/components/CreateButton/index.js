@@ -1,12 +1,7 @@
 import React from "react";
 import { Typography, Grid, Divider } from "@material-ui/core";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
-import {
-  StyledCreateButton,
-  StyledMenu,
-  StyledMenuItem,
-  useStyles,
-} from "./styles";
+import { StyledCreateButton, StyledMenu, StyledMenuItem, useStyles } from "./styles";
 import { BlankDocURL, TemplateDocURL } from "../../utils/API/URLs/createDoc";
 
 function CreateButton() {
@@ -25,13 +20,7 @@ function CreateButton() {
   return (
     <div>
       <StyledCreateButton data-testid="create-button" onClick={handleClick}>
-        <Grid
-          container
-          spacing={1}
-          direction="row"
-          justify="center"
-          alignItems="center"
-        >
+        <Grid container spacing={1} direction="row" justify="center" alignItems="center">
           <Grid item xs={8}>
             <Typography className={classes.buttonText}>Create</Typography>
           </Grid>
@@ -57,18 +46,15 @@ function CreateButton() {
           vertical: "top",
           horizontal: "center",
         }}
-        data-testid="dropdown-menu"
-      >
+        data-testid="dropdown-menu">
         <StyledMenuItem
           data-testid="menu-item-blank"
-          onClick={() => window.open(BlankDocURL, "_blank")}
-        >
+          onClick={() => window.open(BlankDocURL, "_blank")}>
           Blank Document
         </StyledMenuItem>
         <StyledMenuItem
           data-testid="menu-item-template"
-          onClick={() => window.open(TemplateDocURL, "_blank")}
-        >
+          onClick={() => window.open(TemplateDocURL, "_blank")}>
           From Template
         </StyledMenuItem>
       </StyledMenu>

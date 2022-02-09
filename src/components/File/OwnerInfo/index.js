@@ -13,8 +13,7 @@ export default function OwnerInfo({ owner }) {
           placement="left"
           arrow
           disableFocusListener
-          data-testid="owner-tooltip"
-        >
+          data-testid="owner-tooltip">
           <OwnerIcon className={classes.icon} />
         </OwnerToolTip>
         <Typography variant="subtitle1" className={classes.item}>

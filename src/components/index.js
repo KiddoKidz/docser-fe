@@ -10,3 +10,7 @@ export { default as Pagination } from "./Pagination";
 export { default as Logout } from "./Logout";
 export { default as Login } from "./Login";
 export { default as LoadingInfo } from "./LoadingInfo";
+export { default as TOCSideBar } from "./TOCSideBar";
+export { default as TOCFile } from "./TOCFile";
+export { default as TOCHome } from "./TOCHome";
+export { default as TOCTree } from "./TOCTree";

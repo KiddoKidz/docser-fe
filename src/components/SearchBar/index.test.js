@@ -16,9 +16,7 @@ test("Search icon component exist", () => {
 
 test("Search bar placeholder exists", () => {
   render(<SearchBar />);
-  const searchBarPlaceholder = screen.getByPlaceholderText(
-    "Search for keyword..."
-  );
+  const searchBarPlaceholder = screen.getByPlaceholderText("Search for keyword...");
   expect(searchBarPlaceholder).toBeInTheDocument();
 });
 

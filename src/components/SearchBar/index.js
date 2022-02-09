@@ -6,25 +6,12 @@ import CloseIcon from "@material-ui/icons/Close";
 import SearchIcon from "@material-ui/icons/Search";
 import { useStyles } from "./styles";
 
-export default function SearchBar({
-  value,
-  handleSearchValue,
-  resetSearchValue,
-}) {
+export default function SearchBar({ value, handleSearchValue, resetSearchValue }) {
   const classes = useStyles();
 
   return (
-    <Paper
-      component="form"
-      className={classes.root}
-      elevation={0}
-      data-testid="search-bar"
-    >
-      <IconButton
-        className={classes.iconButton}
-        data-testid="search-icon"
-        disabled
-      >
+    <Paper component="form" className={classes.root} elevation={0} data-testid="search-bar">
+      <IconButton className={classes.iconButton} data-testid="search-icon" disabled>
         <SearchIcon />
       </IconButton>
 
@@ -50,8 +37,7 @@ export default function SearchBar({
           data-testid="clear-icon"
           onClick={() => {
             resetSearchValue();
-          }}
-        >
+          }}>
           <CloseIcon />
         </IconButton>
       )}
