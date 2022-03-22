@@ -125,7 +125,7 @@ export default function TOCSideBar({
         </Box>
         {isAdmin && (
           <>
-            <Box position="absolute" bottom="0" width="100%">
+            <Box position="sticky" top="100%" width="100%">
               <UploadButton
                 label="Upload ToC"
                 icon={<CloudUploadOutlinedIcon />}
