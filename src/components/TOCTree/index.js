@@ -68,8 +68,6 @@ const CollapseIcon = () => (
 );
 
 export default function TOCTree({ treeData }) {
-  const treeDataDeepCopied = JSON.parse(JSON.stringify(treeData));
-
   const filterDirectChildFoldersOrFiles = (childFoldersOrFiles, parentFolder) => {
     const directChildFoldersOrFiles = [];
     const remainderChildFoldersOrFiles = [];
@@ -118,10 +116,15 @@ export default function TOCTree({ treeData }) {
 
   return (
     <StyledTreeView defaultCollapseIcon={<CollapseIcon />} defaultExpandIcon={<ExpandIcon />}>
-      {treeDataDeepCopied?.folders?.root?.withCode?.map((rootFolder) =>
-        renderTree(treeDataDeepCopied?.folders.child, treeDataDeepCopied?.files.child, rootFolder),
-      )}
-      {treeDataDeepCopied?.folders?.root?.withoutCode?.map((rootFolder) => (
+      {treeData?.folders?.root?.withCode?.map((rootFolder) => {
+        const treeDataDeepCopied = JSON.parse(JSON.stringify(treeData));
+        return renderTree(
+          treeDataDeepCopied?.folders.child,
+          treeDataDeepCopied?.files.child,
+          rootFolder,
+        );
+      })}
+      {treeData?.folders?.root?.withoutCode?.map((rootFolder) => (
         <StyledTreeItem
           nodeId={rootFolder.name}
           label={rootFolder.name}
@@ -129,7 +132,7 @@ export default function TOCTree({ treeData }) {
           url={rootFolder.url}
         />
       ))}
-      {treeDataDeepCopied?.files?.root?.map((rootFile) => (
+      {treeData?.files?.root?.map((rootFile) => (
         <StyledTreeItem
           nodeId={rootFile.code}
           label={rootFile.name}

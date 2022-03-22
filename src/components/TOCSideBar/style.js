@@ -8,5 +8,6 @@ export const StyledDrawer = withStyles({
   paper: {
     backgroundColor: "#F4F7FA",
     border: "none",
+    maxWidth: "300px",
   },
 })(SwipeableDrawer);
